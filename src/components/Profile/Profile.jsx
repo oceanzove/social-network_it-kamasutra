@@ -2,6 +2,7 @@ import React from "react";
 
 import style from './Profile.module.css'
 import MyPost from "./MyPost/MyPost";
+import {NavLink} from "react-router-dom";
 const Profile = () => {
     return (
         <div>
@@ -12,7 +13,6 @@ const Profile = () => {
                 ava + desc
             </div>
             <MyPost/>
-
         </div>
     )
 }

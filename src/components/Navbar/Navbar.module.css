@@ -4,6 +4,7 @@
     padding: 20px;
 }
 
+
 .item {
 
     a {
@@ -11,8 +12,16 @@
         text-decoration: none;
     }
 
-    :focus {
-        color: red;
+    a.active {
+        font-weight: bold;
     }
 }
+
+
+
+
+
+
+
+
 
