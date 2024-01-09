@@ -1,6 +1,6 @@
 import React from "react";
 
-import classes from './News.module.css'
+import style from './News.module.css'
 
 const News = () => {
   return (
