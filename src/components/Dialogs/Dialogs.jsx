@@ -3,6 +3,7 @@ import React from "react";
 import styles from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import {NavLink} from "react-router-dom";
+import Message from "./DialogItem/Message/Message";
 
 
 
@@ -11,29 +12,16 @@ const Dialogs = () => {
         <div className={styles.dialogs}>
             <div className={styles.dialogItems}>
                 <DialogItem name='Dimych' id='1'/>
-                <div className={styles.dialog}>
-                    <NavLink to='/dialogs/1'>Dimych</NavLink>
-                </div>
-                <div className={styles.dialog}>
-                    <NavLink to='/dialogs/2'>Sveta</NavLink>
-                </div>
-                <div className={styles.dialog}>
-                    <NavLink to='/dialogs/3'>Andrey</NavLink>
-                </div>
-                <div className={styles.dialog}>
-                    <NavLink to='/dialogs/4'>Vika</NavLink>
-                </div>
+                <DialogItem name='Sveta' id='2'/>
+                <DialogItem name='Andrey' id='3'/>
+                <DialogItem name='Vika' id='4'/>
+                <DialogItem name='Pyro' id='5'/>
+                <DialogItem name='Ser' id='6'/>
             </div>
             <div className={styles.messages}>
-                <div className={styles.message}>
-                    Hi
-                </div>
-                <div className={styles.message}>
-                    How are u
-                </div>
-                <div className={styles.message}>
-                    Yaop
-                </div>
+                <Message message='Hi'/>
+                <Message message="Whats up bro?"/>
+                <Message message="Yeap"/>
             </div>
         </div>
     );
