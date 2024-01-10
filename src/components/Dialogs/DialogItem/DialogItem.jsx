@@ -1,15 +1,14 @@
 import React from "react";
 
-import style from './DialogItem.module.css'
+import styles from "../Dialogs.module.css";
+import {NavLink} from "react-router-dom";
 
-const DialogItem = () => {
-  return (
-      <div className={style.border}>
-          <div className={style.item}>
-              <h2> SASHA</h2>
-          </div>
-      </div>
-  )
+const DialogItem = (props) => {
+    return (
+        <div className={styles.dialog}>
+            <NavLink to={'/dialogs/' + props.id}>{props.name}</NavLink>
+        </div>
+    )
 }
 
 export default DialogItem

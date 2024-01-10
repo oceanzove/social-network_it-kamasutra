@@ -1,6 +1,7 @@
 import React from "react";
 import styles from './Navbar.module.css'
 import {NavLink, useLocation} from "react-router-dom";
+import {exact} from "prop-types";
 
 const Navbar = () => {
     const location = useLocation();
@@ -13,7 +14,7 @@ const Navbar = () => {
         </div>
         <div className={styles.item}>
             <NavLink to="/dialogs"
-                     className={location.pathname === '/dialogs' ? styles.active : undefined}
+                     className={location.pathname.match('/dialogs', exact) ? styles.active : undefined}
             > Messages</NavLink>
         </div>
         <div className={styles.item}>
