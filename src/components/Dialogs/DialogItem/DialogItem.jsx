@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "../Dialogs.module.css";
+import styles from "./DialogItem.module.css"
 import {NavLink} from "react-router-dom";
 
 const DialogItem = (props) => {
@@ -8,6 +8,7 @@ const DialogItem = (props) => {
 
     return (
         <div className={styles.dialog}>
+            <img src={props.ico} alt={null}/>
             <NavLink to={path}>{props.name}</NavLink>
         </div>
     )
