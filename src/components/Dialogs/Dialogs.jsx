@@ -2,9 +2,7 @@ import React from "react";
 
 import styles from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
-import {NavLink} from "react-router-dom";
-import Message from "./DialogItem/Message/Message";
-import message from "./DialogItem/Message/Message";
+import Message from "./Message/Message";
 
 
 const Dialogs = () => {
