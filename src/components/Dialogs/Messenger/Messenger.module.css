@@ -1,0 +1,17 @@
+
+
+.messenger {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "u m";
+    padding: 10px;
+
+    .message.me {
+      grid-template: "m";
+    }
+
+    .message.u {
+        grid-template: 'u';
+    }
+}
+
