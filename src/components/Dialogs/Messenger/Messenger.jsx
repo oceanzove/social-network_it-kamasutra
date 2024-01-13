@@ -4,13 +4,17 @@ import Message from "./Message/Message";
 
 const Messenger = (props) => {
 
-    let messagesElement = props.messages.map(
-        m => <Message message={m.message}/>
+    let messagesElementU = props.messages.map(
+        m => <Message className={styles.message.u} message={m.message}/>
+    )
+    let messagesElementM = props.messages.map(
+        m => <Message className={styles.message.m} message={m.message}/>
     )
 
     return (
         <div className={styles.messenger}>
-            {messagesElement}
+            {messagesElementU}
+            {messagesElementM}
         </div>
     );
 };
