@@ -8,10 +8,23 @@ const Messenger = (props) => {
         m => <Message message={m.message}/>
     )
 
+    let newMessageElement = React.createRef();
+
+    let sendMessage = () => {
+        let text = newMessageElement.current.value;
+        alert(text);
+    }
+
     return (
-        <div className={styles.messenger}>
-            {messagesElement}
-        </div>
+        <>
+            <div className={styles.messenger}>
+                {messagesElement}
+            </div>
+            <div>
+                <textarea ref={newMessageElement}></textarea>
+                <button onClick={sendMessage}>Send message</button>
+            </div>
+        </>
     );
 };
 

@@ -22,7 +22,8 @@ let state = {
             {id: 5, ico: "https://i.pinimg.com/564x/8c/00/eb/8c00eb3d3d28e048df2ec7fb4f2cedcb.jpg", name: 'Pyro'},
             {id: 6, ico: "https://i.pinimg.com/736x/2a/b2/98/2ab298634bdfc5b3ab941f63e947d800.jpg", name: 'Sergey'},
         ]
-    }
+    },
+    sidebar: {}
 }
 
 export default state
