@@ -4,7 +4,7 @@ import {NavLink, useLocation} from "react-router-dom";
 import {exact} from "prop-types";
 import Friends from "./Friends/Friends";
 
-const Navbar = () => {
+const Navbar = (props) => {
     const location = useLocation();
 
     return (<nav className={styles.nav}>
@@ -37,7 +37,7 @@ const Navbar = () => {
             <NavLink to='/friends'
                      className={location.pathname.match('/friends', exact) ? styles.active : undefined}
             > Friends </NavLink>
-            <Friends />
+            <Friends friends={props.state.friends} />
         </div>
     </nav>)
 }
