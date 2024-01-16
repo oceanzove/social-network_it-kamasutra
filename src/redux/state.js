@@ -17,6 +17,7 @@ let state = {
             {id: 3, message: 'Hello World!'},
             {id: 3, message: 'Hello World!'},
         ],
+        newMessageText: '',
         dialogues: [
             {id: 1, ico: "https://i.pinimg.com/564x/59/78/51/597851f6d8f77eec967b9e940d61355c.jpg", name: 'Dimcho'},
             {id: 2, ico: "https://i.pinimg.com/564x/05/3e/46/053e46fc877d81873c1351650100b3f0.jpg", name: 'Andrew'},
@@ -38,6 +39,21 @@ let state = {
     }
 }
 
+export let sendMessage = () => {
+    let newMessage = {
+        id: 6,
+        message: state.dialogsPage.newMessageText
+    }
+    state.dialogsPage.messages.push(newMessage);
+    state.dialogsPage.newMessageText='';
+    rerenderEntireTree(state);
+};
+
+export let updateNewMessageText = (newText) => {
+    state.dialogsPage.newMessageText = newText;
+    rerenderEntireTree(state);
+};
+
 export let addPost = () => {
     let newPost = {
         id: 5,
@@ -53,5 +69,7 @@ export let updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
     rerenderEntireTree(state);
 };
+
+
 
 export default state

@@ -24,7 +24,10 @@ const App = (props) => {
                         updateNewPostText={props.updateNewPostText}
                         />} />
                         <Route path='/dialogs'
-                               element={<Dialogs state={props.state.dialogsPage}/>} />
+                               element={<Dialogs state={props.state.dialogsPage}
+                               sendMessage={props.sendMessage}
+                                                 updateNewMessageText={props.updateNewMessageText}
+                               />} />
                         <Route path='/news' element={<News/>} />
                         <Route path='/music' element={<Music/>} />
                         <Route path='/settings' element={<Settings/>} />
