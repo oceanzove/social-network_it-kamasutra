@@ -1,6 +1,5 @@
-
 let store = {
-     _state: {
+    _state: {
         profilePage: {
             posts: [
                 {id: 1, message: 'Hi how are?', likesCount: 12},
@@ -38,13 +37,17 @@ let store = {
             ]
         }
     },
-    _callSubscriber()  {
+    _callSubscriber() {
         console.log('state was changed')
     },
     getState() {
-         return this._state;
+        return this._state;
     },
-    addPost()  {
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
+
+    addPost() {
         let newPost = {
             id: 5,
             message: this._state.profilePage.newPostText,
@@ -58,7 +61,7 @@ let store = {
         this._state.profilePage.newPostText = newText;
         this._callSubscriber(this._state);
     },
-    sendMessage() {
+    sendMessage(){
         let newMessage = {
             id: 6,
             message: this._state.dialogsPage.newMessageText
@@ -67,13 +70,28 @@ let store = {
         this._state.dialogsPage.newMessageText = '';
         this._callSubscriber(this._state);
     },
-    updateNewMessageText(newText) {
+    updateNewMessageText(newText){
         this._state.dialogsPage.newMessageText = newText;
-        this._callSubscriber(this._state);
+        this._callSubscriber(this._state)
     },
-    subscribe(observer) {
-        this._callSubscriber = observer;
-    }
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            this.addPost();
+        }
+        else if (action.type === 'UPDATE-NEW-POST-TEXT'){
+            this.updateNewPostText(action.newText);
+        }
+        else if (action.type === 'SEND-MESSAGE') {
+            this.sendMessage();
+        }
+        else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT'){
+            this.updateNewMessageText(action.newText);
+        }
+        else {
+            console.log("This type of action, not found")
+        }
+    },
+
 }
 
 export default store
