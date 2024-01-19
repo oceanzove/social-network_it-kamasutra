@@ -67,7 +67,7 @@ let store = {
         this._state.profilePage.newPostText = newText;
         this._callSubscriber(this._state);
     },
-    sendMessage(){
+    sendMessage() {
         let newMessage = {
             id: 6,
             message: this._state.dialogsPage.newMessageText
@@ -76,47 +76,37 @@ let store = {
         this._state.dialogsPage.newMessageText = '';
         this._callSubscriber(this._state);
     },
-    updateNewMessageText(newText){
+    updateNewMessageText(newText) {
         this._state.dialogsPage.newMessageText = newText;
         this._callSubscriber(this._state)
     },
     dispatch(action) {
         if (action.type === ADD_POST) {
             this.addPost();
-        }
-        else if (action.type === UPDATE_NEW_POST_TEXT){
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this.updateNewPostText(action.newText);
-        }
-        else if (action.type === SEND_MESSAGE) {
+        } else if (action.type === SEND_MESSAGE) {
             this.sendMessage();
-        }
-        else if (action.type === UPDATE_NEW_MESSAGE_TEXT){
+        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
             this.updateNewMessageText(action.newText);
-        }
-        else {
+        } else {
             console.log("This type of action, not found")
         }
     },
 
 }
 
-export const addPostActionCreator = () => {
-    return {
-        type: ADD_POST
-    }
-}
+export const addPostActionCreator = () => ({type: ADD_POST});
 
-export const updateNewPostActionCreator = (text) => {
-    return { type: UPDATE_NEW_POST_TEXT, newText: text}
-}
 
-export const sendMessageActionCreator = () => {
-  return {
-      type: SEND_MESSAGE
-  }
-}
+export const updateNewPostActionCreator = (text) => (
+    {type: UPDATE_NEW_POST_TEXT, newText: text});
 
-export const updateNewMessageActionCreator = (text) => {
-  return { type: UPDATE_NEW_MESSAGE_TEXT, newText: text}
-}
+export const sendMessageActionCreator = () => ({type: SEND_MESSAGE});
+
+
+export const updateNewMessageActionCreator = (text) => (
+    {type: UPDATE_NEW_MESSAGE_TEXT, newText: text}
+);
+
 export default store
