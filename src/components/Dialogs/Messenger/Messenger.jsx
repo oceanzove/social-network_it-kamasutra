@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Messenger.module.css'
 import Message from "./Message/Message";
+import {sendMessageActionCreator, updateNewMessageActionCreator} from "../../../redux/state";
 
 const Messenger = (props) => {
 
@@ -14,14 +15,12 @@ const Messenger = (props) => {
     let newMessageElement = React.createRef();
 
     let sendMessage = () => {
-        let type = 'SEND-MESSAGE';
-        props.dispatch({type: type});
+        props.dispatch(sendMessageActionCreator());
     }
 
     let onMessageChange = () => {
-        let type = 'UPDATE-NEW-MESSAGE-TEXT';
         let text = newMessageElement.current.value;
-        props.dispatch({type: type, newText: text});
+        props.dispatch(updateNewMessageActionCreator(text));
     }
 
 
