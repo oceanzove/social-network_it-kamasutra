@@ -11,13 +11,12 @@ const MyPost = (props) => {
         p => <Post message={p.message} likesCount={p.likesCount}/>
     );
 
-    let newPostElement = React.createRef();
     let addPost = () => {
         props.dispatch(addPostActionCreator())
     };
 
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
+    let onPostChange = (event) => {
+        let text = event.target.value;
         props.dispatch(updateNewPostActionCreator(text));
     };
 
@@ -26,7 +25,7 @@ const MyPost = (props) => {
             <h3>MyPosts</h3>
             <div>
                 <div>
-                    <textarea ref={newPostElement} value={props.newPostText} onChange={onPostChange}/>
+                    <textarea placeholder='Enter your post text' value={props.newPostText} onChange={onPostChange}/>
                 </div>
                 <div>
                     <button onClick={addPost}>New post</button>
