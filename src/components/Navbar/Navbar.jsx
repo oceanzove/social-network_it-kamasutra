@@ -37,7 +37,7 @@ const Navbar = (props) => {
             <NavLink to='/friends'
                      className={location.pathname.match('/friends', exact) ? styles.active : undefined}
             > Friends </NavLink>
-            <Friends friends={props.state.friends} />
+            <Friends friends={props.sidebarPage.friends} />
         </div>
     </nav>)
 }
