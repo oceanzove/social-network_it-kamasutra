@@ -2,12 +2,13 @@ import React from "react";
 
 import styles from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
-import Messenger from "./Messenger/Messenger";
+import MessengerContainer from "./Messenger/MessengerContainer";
 
 
 const Dialogs = (props) => {
 
-    let dialogsElements = props.state.dialogues.map(
+    let state = props.store.getState().dialogsPage;
+    let dialogsElements = state.dialogues.map(
         d =>
             <DialogItem name={d.name} ico={d.ico} id={d.id}/>
     );
@@ -18,8 +19,7 @@ const Dialogs = (props) => {
                 {dialogsElements}
             </div>
             <div>
-                <Messenger messages={props.state.messages} newMessageText={props.state.newMessageText}
-                           dispatch={props.dispatch} />
+                <MessengerContainer store={props.store} />
             </div>
         </div>
     );
