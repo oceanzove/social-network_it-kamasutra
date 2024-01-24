@@ -2,11 +2,10 @@ import React from "react";
 import styles from './Navbar.module.css'
 import {NavLink, useLocation} from "react-router-dom";
 import {exact} from "prop-types";
-import Friends from "./Friends/Friends";
+import FriendsContainer from "./Friends/FriendsContainer";
 
-const Navbar = (props) => {
+const Navbar = () => {
     const location = useLocation();
-
     return (<nav className={styles.nav}>
         <div className={styles.item}>
             <NavLink to="/profile"
@@ -37,7 +36,7 @@ const Navbar = (props) => {
             <NavLink to='/friends'
                      className={location.pathname.match('/friends', exact) ? styles.active : undefined}
             > Friends </NavLink>
-            <Friends friends={props.sidebarPage.friends} />
+            <FriendsContainer />
         </div>
     </nav>)
 }
