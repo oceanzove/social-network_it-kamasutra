@@ -6,7 +6,7 @@ import MessengerContainer from "./Messenger/MessengerContainer";
 
 
 const Dialogs = (props) => {
-    let dialogsElements = props.dialogues.map(d => <DialogItem name={d.name} ico={d.ico} id={d.id}/>);
+    let dialogsElements = props.dialogues.map(d => <DialogItem name={d.name} ico={d.ico} key={d.id} id={d.id}/>);
     return (
         <div className={styles.dialogs}>
             <div className={styles.dialogItems}>
